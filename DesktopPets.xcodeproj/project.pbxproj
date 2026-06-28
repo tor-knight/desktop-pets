@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0120F1ED432D15BF65DE287C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462C0AAE96CE438194B50EB /* ContentView.swift */; };
+		5D7F803BC486C142AC7E105C /* DesktopPetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */; };
+		C236DA8F80E7567D702C91B9 /* HealthBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA653A0B13BE72AECCA4DC3E /* HealthBehavior.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4EB97D05F53A71BA72774B8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44616EBE538F651B72036D49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73343C5C7D4F4D22EEDCBA6E;
+			remoteInfo = DesktopPets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopPetsApp.swift; sourceTree = "<group>"; };
+		3A4F34EC32373F8B07A4DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B462C0AAE96CE438194B50EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopPets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesktopPetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA653A0B13BE72AECCA4DC3E /* HealthBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBehavior.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1CD53C85D2B40225F455536E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA653A0B13BE72AECCA4DC3E /* HealthBehavior.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2BEE956B50779A803CD0C9A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */,
+				D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D6E2358486B7EBA880CEFFE = {
+			isa = PBXGroup;
+			children = (
+				6581A9822FAF33702C0B8BAC /* DesktopPets */,
+				639CABD28957BCA7587BC98D /* DesktopPetsTests */,
+				2BEE956B50779A803CD0C9A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		639CABD28957BCA7587BC98D /* DesktopPetsTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DesktopPetsTests;
+			sourceTree = "<group>";
+		};
+		6581A9822FAF33702C0B8BAC /* DesktopPets */ = {
+			isa = PBXGroup;
+			children = (
+				04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */,
+				3A4F34EC32373F8B07A4DF50 /* Info.plist */,
+				1CD53C85D2B40225F455536E /* Models */,
+				C68A370104197C9126226E9C /* Views */,
+			);
+			path = DesktopPets;
+			sourceTree = "<group>";
+		};
+		C68A370104197C9126226E9C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B462C0AAE96CE438194B50EB /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40762F5DC857CF4C9AFEA091 /* DesktopPetsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A7669665391527566691D4C /* Build configuration list for PBXNativeTarget "DesktopPetsTests" */;
+			buildPhases = (
+				919B07DFE67C4278CFEDF1D5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7D66469C7CBEE7C376AACF6 /* PBXTargetDependency */,
+			);
+			name = DesktopPetsTests;
+			packageProductDependencies = (
+			);
+			productName = DesktopPetsTests;
+			productReference = D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		73343C5C7D4F4D22EEDCBA6E /* DesktopPets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44636928AF0DFB836339B7DC /* Build configuration list for PBXNativeTarget "DesktopPets" */;
+			buildPhases = (
+				DEBD986A444DC9413BCF59C6 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DesktopPets;
+			packageProductDependencies = (
+			);
+			productName = DesktopPets;
+			productReference = CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44616EBE538F651B72036D49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = D55A2B2E80A544BCFB50E98F /* Build configuration list for PBXProject "DesktopPets" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2D6E2358486B7EBA880CEFFE;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2BEE956B50779A803CD0C9A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73343C5C7D4F4D22EEDCBA6E /* DesktopPets */,
+				40762F5DC857CF4C9AFEA091 /* DesktopPetsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		919B07DFE67C4278CFEDF1D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEBD986A444DC9413BCF59C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0120F1ED432D15BF65DE287C /* ContentView.swift in Sources */,
+				5D7F803BC486C142AC7E105C /* DesktopPetsApp.swift in Sources */,
+				C236DA8F80E7567D702C91B9 /* HealthBehavior.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7D66469C7CBEE7C376AACF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73343C5C7D4F4D22EEDCBA6E /* DesktopPets */;
+			targetProxy = 4EB97D05F53A71BA72774B8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		24FD0711B18E9675FAB8A614 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DesktopPetsTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesktopPets.app/Contents/MacOS/DesktopPets";
+			};
+			name = Release;
+		};
+		57C4ED18E9A631F77B2CB170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DesktopPetsTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesktopPets.app/Contents/MacOS/DesktopPets";
+			};
+			name = Debug;
+		};
+		7695FE63BAA9C89A69986787 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DesktopPets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DesktopPets;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AD0AABFFA8B4A82CB08690E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DesktopPets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DesktopPets;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D9203E91203831BAA6D6342B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DF64917059E84B8E9BFEF1E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44636928AF0DFB836339B7DC /* Build configuration list for PBXNativeTarget "DesktopPets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7695FE63BAA9C89A69986787 /* Debug */,
+				AD0AABFFA8B4A82CB08690E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7A7669665391527566691D4C /* Build configuration list for PBXNativeTarget "DesktopPetsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57C4ED18E9A631F77B2CB170 /* Debug */,
+				24FD0711B18E9675FAB8A614 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D55A2B2E80A544BCFB50E98F /* Build configuration list for PBXProject "DesktopPets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9203E91203831BAA6D6342B /* Debug */,
+				DF64917059E84B8E9BFEF1E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 44616EBE538F651B72036D49 /* Project object */;
+}
