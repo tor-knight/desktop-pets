@@ -1,0 +1,22 @@
+name: DesktopPets
+options:
+  bundleIdPrefix: com.example
+targets:
+  DesktopPets:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources: [DesktopPets]
+    info:
+      path: DesktopPets/Info.plist
+      properties:
+        LSUIElement: true
+        NSAppleEventsUsageDescription: "We need input monitoring to track your idle time."
+    dependencies: []
+  DesktopPetsTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources: [DesktopPetsTests]
+    dependencies:
+      - target: DesktopPets
