@@ -18,5 +18,7 @@ targets:
     platform: macOS
     deploymentTarget: "14.0"
     sources: [DesktopPetsTests]
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
     dependencies:
       - target: DesktopPets
