@@ -46,13 +46,17 @@ final class IdleTimerManager {
             return event
         }
         timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
-            self?.checkIdleState()
+            Task { @MainActor in
+                self?.checkIdleState()
+            }
         }
     }
     
     private func setupAbsoluteTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: idleThreshold, repeats: true) { [weak self] _ in
-            self?.triggerOverlay()
+            Task { @MainActor in
+                self?.triggerOverlay()
+            }
         }
     }
     
@@ -109,8 +113,10 @@ final class IdleTimerManager {
         let currentGlobal = globalMonitor
         let currentLocal = localMonitor
         
-        currentTimer?.invalidate()
-        if let g = currentGlobal { NSEvent.removeMonitor(g) }
-        if let l = currentLocal { NSEvent.removeMonitor(l) }
+        Task { @MainActor in
+            currentTimer?.invalidate()
+            if let g = currentGlobal { NSEvent.removeMonitor(g) }
+            if let l = currentLocal { NSEvent.removeMonitor(l) }
+        }
     }
 }
