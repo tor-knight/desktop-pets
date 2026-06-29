@@ -21,6 +21,7 @@ class OverlayWindowManager {
         window.isOpaque = false
         window.ignoresMouseEvents = false
         window.hasShadow = false
+        window.isReleasedWhenClosed = false
         return window
     }
     
@@ -36,8 +37,10 @@ class OverlayWindowManager {
             guard let window = windowFactory(screen) else { continue }
             
             let petView = PetView(dismissAction: { [weak self] in
-                self?.hideOverlay()
-                dismissAction()
+                Task { @MainActor in
+                    self?.hideOverlay()
+                    dismissAction()
+                }
             })
             
             let wrappedView = petView.modelContext(modelContext)

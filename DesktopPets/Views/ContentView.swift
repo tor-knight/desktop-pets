@@ -18,6 +18,11 @@ struct ContentView: View {
             } else {
                 Text("✅ Permissions granted")
                     .foregroundColor(.green)
+                
+                Button("Test Overlay (Preview)") {
+                    viewModel.idleManager.triggerOverlay()
+                }
+                .padding(.top, 10)
             }
         }
         .padding()

@@ -1,0 +1,6 @@
+build/
+check_ax.swift
+make_icons.py
+.DS_Store
+xcuserdata/
+*.xcworkspace

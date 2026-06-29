@@ -13,6 +13,7 @@ final class IdleTimerManager {
     nonisolated(unsafe) private var localMonitor: Any?
     private var lastActivity: Date = Date()
     private let idleThreshold: TimeInterval = 45 * 60 // 45 minutes
+    var timeRemaining: TimeInterval = 45 * 60
     
     init(powerManager: PowerStateManager) {
         self.powerManager = powerManager
@@ -45,17 +46,17 @@ final class IdleTimerManager {
             self?.resetIdle()
             return event
         }
-        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
-            Task { @MainActor in
-                self?.checkIdleState()
-            }
-        }
+        setupTickTimer()
     }
     
     private func setupAbsoluteTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: idleThreshold, repeats: true) { [weak self] _ in
+        setupTickTimer()
+    }
+    
+    private func setupTickTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             Task { @MainActor in
-                self?.triggerOverlay()
+                self?.tick()
             }
         }
     }
@@ -64,23 +65,33 @@ final class IdleTimerManager {
         lastActivity = Date()
     }
     
-    func checkIdleState() {
+    func tick() {
         guard !powerManager.isSleeping, !powerManager.isLowPower else { return }
         
         let now = Date()
-        if hasSignificantTimeDrift(lastCheck: lastActivity) {
-            // Drift detected (e.g. slept for hours), reset idle
-            resetIdle()
+        let inactiveTime = now.timeIntervalSince(lastActivity)
+        
+        // If the user has been inactive for more than 5 minutes (e.g. walked away),
+        // we consider it a break and reset the 45-minute work timer.
+        if inactiveTime > 5 * 60 {
+            timeRemaining = idleThreshold
             return
         }
-        if now.timeIntervalSince(lastActivity) >= idleThreshold {
+        
+        // Otherwise, they are working. Count down the time.
+        timeRemaining -= 1.0
+        
+        if timeRemaining <= 0 {
             triggerOverlay()
         }
     }
     
+    func checkIdleState() {
+        tick()
+    }
+    
     func hasSignificantTimeDrift(lastCheck: Date) -> Bool {
-        let diff = Date().timeIntervalSince(lastCheck)
-        return diff > (idleThreshold + 300) // More than threshold + 5 mins
+        return false // Handled in tick() directly now
     }
     
     func triggerOverlay() {
@@ -91,6 +102,7 @@ final class IdleTimerManager {
     
     func dismissOverlay() {
         shouldShowOverlay = false
+        timeRemaining = idleThreshold
         resetIdle()
         startMonitoring()
     }
