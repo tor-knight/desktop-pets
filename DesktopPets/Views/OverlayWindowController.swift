@@ -1,0 +1,44 @@
+import AppKit
+import SwiftUI
+import SwiftData
+
+@MainActor
+class OverlayWindowManager {
+    static let shared = OverlayWindowManager()
+    private var windows: [NSWindow] = []
+    
+    func showOverlay(modelContext: ModelContext, dismissAction: @escaping () -> Void) {
+        let screens = NSScreen.screens
+        for screen in screens {
+            let window = NSWindow(
+                contentRect: screen.frame,
+                styleMask: [.borderless],
+                backing: .buffered,
+                defer: false,
+                screen: screen
+            )
+            window.level = .screenSaver
+            window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+            window.backgroundColor = .clear
+            window.isOpaque = false
+            window.ignoresMouseEvents = false
+            window.hasShadow = false
+            
+            let petView = PetView(dismissAction: { [weak self] in
+                self?.hideOverlay()
+                dismissAction()
+            }).modelContext(modelContext)
+            
+            window.contentView = NSHostingView(rootView: petView)
+            window.makeKeyAndOrderFront(nil)
+            windows.append(window)
+        }
+    }
+    
+    func hideOverlay() {
+        for window in windows {
+            window.close()
+        }
+        windows.removeAll()
+    }
+}
