@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		0120F1ED432D15BF65DE287C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462C0AAE96CE438194B50EB /* ContentView.swift */; };
 		289FFB0AA818E8F4435E0A29 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E169B495337E60818BD7A93B /* PetView.swift */; };
+		4DFC89DF32B473E4A93A3A8A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0E9231CE6CB985B4404E0 /* ContentViewModel.swift */; };
 		52F61CA264531F68BEF87D40 /* OverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85201AD7BD532EF9BC9488 /* OverlayWindowController.swift */; };
 		5D7F803BC486C142AC7E105C /* DesktopPetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */; };
 		7D52D38E3C7A296F9C4CAADB /* PetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD7BAAB5218324C7017E55 /* PetViewModelTests.swift */; };
 		802D01CCA7C7BBE2B7F61574 /* OverlayWindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CB44640EEF2D20E43BF03 /* OverlayWindowControllerTests.swift */; };
 		850214D91E71AC9407D69618 /* IdleTimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CCCFCF1FE4B22F50E8DC1 /* IdleTimerManagerTests.swift */; };
+		8542ACFA2EE13D7114A0C1E1 /* ContentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE343AEFBC4FB837B241AE /* ContentViewModelTests.swift */; };
 		A77B08F7ECB0A19ACBF1243B /* IdleTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740229C922CE68868980925C /* IdleTimerManager.swift */; };
 		B7995D5782455576DF93B0F3 /* PowerStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */; };
 		C236DA8F80E7567D702C91B9 /* HealthBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA653A0B13BE72AECCA4DC3E /* HealthBehavior.swift */; };
@@ -37,6 +39,7 @@
 		1F85201AD7BD532EF9BC9488 /* OverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
 		20BD7BAAB5218324C7017E55 /* PetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModelTests.swift; sourceTree = "<group>"; };
 		3A4F34EC32373F8B07A4DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3FA0E9231CE6CB985B4404E0 /* ContentViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		740229C922CE68868980925C /* IdleTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerManager.swift; sourceTree = "<group>"; };
 		780E7C12940A43CE312D2426 /* PowerStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStateManager.swift; sourceTree = "<group>"; };
 		791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStateManagerTests.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		9B0510F75828F613FDC81CFF /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
 		B462C0AAE96CE438194B50EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopPets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECE343AEFBC4FB837B241AE /* ContentViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentViewModelTests.swift; sourceTree = "<group>"; };
 		D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesktopPetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB45444E871A74779F2F06FD /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		E169B495337E60818BD7A93B /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				9B0510F75828F613FDC81CFF /* PetViewModel.swift */,
+				3FA0E9231CE6CB985B4404E0 /* ContentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 				832CB44640EEF2D20E43BF03 /* OverlayWindowControllerTests.swift */,
 				20BD7BAAB5218324C7017E55 /* PetViewModelTests.swift */,
 				791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */,
+				CECE343AEFBC4FB837B241AE /* ContentViewModelTests.swift */,
 			);
 			path = DesktopPetsTests;
 			sourceTree = "<group>";
@@ -144,8 +150,6 @@
 				D7D66469C7CBEE7C376AACF6 /* PBXTargetDependency */,
 			);
 			name = DesktopPetsTests;
-			packageProductDependencies = (
-			);
 			productName = DesktopPetsTests;
 			productReference = D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -161,8 +165,6 @@
 			dependencies = (
 			);
 			name = DesktopPets;
-			packageProductDependencies = (
-			);
 			productName = DesktopPets;
 			productReference = CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */;
 			productType = "com.apple.product-type.application";
@@ -207,6 +209,7 @@
 				802D01CCA7C7BBE2B7F61574 /* OverlayWindowControllerTests.swift in Sources */,
 				7D52D38E3C7A296F9C4CAADB /* PetViewModelTests.swift in Sources */,
 				B7995D5782455576DF93B0F3 /* PowerStateManagerTests.swift in Sources */,
+				8542ACFA2EE13D7114A0C1E1 /* ContentViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +225,7 @@
 				289FFB0AA818E8F4435E0A29 /* PetView.swift in Sources */,
 				DC2645B47C4F836093A68400 /* PetViewModel.swift in Sources */,
 				E656BD8B14E7DD6B237BEC18 /* PowerStateManager.swift in Sources */,
+				4DFC89DF32B473E4A93A3A8A /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

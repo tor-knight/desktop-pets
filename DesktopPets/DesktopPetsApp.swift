@@ -2,7 +2,10 @@ import SwiftUI
 import SwiftData
 
 @main
+@MainActor
 struct DesktopPetsApp: App {
+    @State private var viewModel = ContentViewModel()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([HealthBehavior.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
@@ -15,7 +18,7 @@ struct DesktopPetsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
         }
         .modelContainer(sharedModelContainer)
     }

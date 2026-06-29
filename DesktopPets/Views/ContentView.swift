@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var powerManager = PowerStateManager()
-    @State private var idleManager: IdleTimerManager?
+    @Bindable var viewModel: ContentViewModel
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
@@ -10,12 +9,11 @@ struct ContentView: View {
             Text("Desktop Pets Active")
                 .font(.title)
             
-            if !(AXIsProcessTrusted()) {
+            if !viewModel.isPermissionsGranted {
                 Text("⚠️ Input Monitoring permission is recommended for accurate idle detection.")
                     .foregroundColor(.orange)
                 Button("Open System Settings") {
-                    let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!
-                    NSWorkspace.shared.open(url)
+                    viewModel.openSettings()
                 }
             } else {
                 Text("✅ Permissions granted")
@@ -25,14 +23,12 @@ struct ContentView: View {
         .padding()
         .frame(width: 400, height: 200)
         .onAppear {
-            let manager = IdleTimerManager(powerManager: powerManager)
-            self.idleManager = manager
-            manager.startMonitoring()
+            viewModel.onAppear()
         }
-        .onChange(of: idleManager?.shouldShowOverlay) { _, show in
-            if show == true {
+        .onChange(of: viewModel.idleManager.shouldShowOverlay) { _, show in
+            if show {
                 OverlayWindowManager.shared.showOverlay(modelContext: modelContext) {
-                    idleManager?.dismissOverlay()
+                    viewModel.idleManager.dismissOverlay()
                 }
             }
         }
