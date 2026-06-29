@@ -8,14 +8,26 @@ final class PowerStateManager {
     var isLowPower: Bool = false
     var isSleeping: Bool = false
     
-    init() {
+    @ObservationIgnored nonisolated private let notificationCenter: NotificationCenter
+    @ObservationIgnored nonisolated(unsafe) private var powerSourceRunLoopSource: CFRunLoopSource?
+    
+    init(notificationCenter: NotificationCenter = NSWorkspace.shared.notificationCenter) {
+        self.notificationCenter = notificationCenter
         setupSleepWakeNotifications()
+        setupPowerSourceNotifications()
         updateBatteryState()
     }
     
+    deinit {
+        notificationCenter.removeObserver(self)
+        if let source = powerSourceRunLoopSource {
+            CFRunLoopRemoveSource(CFRunLoopGetMain(), source, .defaultMode)
+        }
+    }
+    
     private func setupSleepWakeNotifications() {
-        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(handleSleep), name: NSWorkspace.willSleepNotification, object: nil)
-        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(handleWake), name: NSWorkspace.didWakeNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(handleSleep), name: NSWorkspace.willSleepNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(handleWake), name: NSWorkspace.didWakeNotification, object: nil)
     }
     
     @objc private func handleSleep() {
@@ -27,6 +39,20 @@ final class PowerStateManager {
         updateBatteryState()
     }
     
+    private func setupPowerSourceNotifications() {
+        let context = Unmanaged.passUnretained(self).toOpaque()
+        let runLoopSource = IOPSNotificationCreateRunLoopSource({ context in
+            guard let context = context else { return }
+            let manager = Unmanaged<PowerStateManager>.fromOpaque(context).takeUnretainedValue()
+            Task { @MainActor in
+                manager.updateBatteryState()
+            }
+        }, context).takeRetainedValue()
+        
+        self.powerSourceRunLoopSource = runLoopSource
+        CFRunLoopAddSource(CFRunLoopGetMain(), runLoopSource, .defaultMode)
+    }
+    
     func updateBatteryState() {
         let timeRemaining = IOPSGetTimeRemainingEstimate()
         let isPlugged = timeRemaining == kIOPSTimeRemainingUnlimited
@@ -34,8 +60,12 @@ final class PowerStateManager {
         let sources = IOPSCopyPowerSourcesList(snapshot).takeRetainedValue() as Array
         var lowBattery = false
         for ps in sources {
-            let info = IOPSGetPowerSourceDescription(snapshot, ps).takeUnretainedValue() as! [String: Any]
-            if let current = info[kIOPSCurrentCapacityKey] as? Int, let max = info[kIOPSMaxCapacityKey] as? Int {
+            guard let infoRaw = IOPSGetPowerSourceDescription(snapshot, ps)?.takeUnretainedValue() else {
+                continue
+            }
+            if let info = infoRaw as? [String: Any],
+               let current = info[kIOPSCurrentCapacityKey] as? Int,
+               let max = info[kIOPSMaxCapacityKey] as? Int {
                 let percent = Double(current) / Double(max)
                 if percent < 0.20 {
                     lowBattery = true
