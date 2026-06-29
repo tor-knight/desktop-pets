@@ -11,6 +11,8 @@
 		289FFB0AA818E8F4435E0A29 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E169B495337E60818BD7A93B /* PetView.swift */; };
 		52F61CA264531F68BEF87D40 /* OverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85201AD7BD532EF9BC9488 /* OverlayWindowController.swift */; };
 		5D7F803BC486C142AC7E105C /* DesktopPetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */; };
+		7D52D38E3C7A296F9C4CAADB /* PetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD7BAAB5218324C7017E55 /* PetViewModelTests.swift */; };
+		802D01CCA7C7BBE2B7F61574 /* OverlayWindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832CB44640EEF2D20E43BF03 /* OverlayWindowControllerTests.swift */; };
 		850214D91E71AC9407D69618 /* IdleTimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CCCFCF1FE4B22F50E8DC1 /* IdleTimerManagerTests.swift */; };
 		A77B08F7ECB0A19ACBF1243B /* IdleTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740229C922CE68868980925C /* IdleTimerManager.swift */; };
 		B7995D5782455576DF93B0F3 /* PowerStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */; };
@@ -33,10 +35,12 @@
 		04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopPetsApp.swift; sourceTree = "<group>"; };
 		171CCCFCF1FE4B22F50E8DC1 /* IdleTimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerManagerTests.swift; sourceTree = "<group>"; };
 		1F85201AD7BD532EF9BC9488 /* OverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
+		20BD7BAAB5218324C7017E55 /* PetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModelTests.swift; sourceTree = "<group>"; };
 		3A4F34EC32373F8B07A4DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		740229C922CE68868980925C /* IdleTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerManager.swift; sourceTree = "<group>"; };
 		780E7C12940A43CE312D2426 /* PowerStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStateManager.swift; sourceTree = "<group>"; };
 		791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStateManagerTests.swift; sourceTree = "<group>"; };
+		832CB44640EEF2D20E43BF03 /* OverlayWindowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowControllerTests.swift; sourceTree = "<group>"; };
 		9B0510F75828F613FDC81CFF /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
 		B462C0AAE96CE438194B50EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopPets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,8 @@
 			children = (
 				DB45444E871A74779F2F06FD /* .gitkeep */,
 				171CCCFCF1FE4B22F50E8DC1 /* IdleTimerManagerTests.swift */,
+				832CB44640EEF2D20E43BF03 /* OverlayWindowControllerTests.swift */,
+				20BD7BAAB5218324C7017E55 /* PetViewModelTests.swift */,
 				791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */,
 			);
 			path = DesktopPetsTests;
@@ -198,6 +204,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				850214D91E71AC9407D69618 /* IdleTimerManagerTests.swift in Sources */,
+				802D01CCA7C7BBE2B7F61574 /* OverlayWindowControllerTests.swift in Sources */,
+				7D52D38E3C7A296F9C4CAADB /* PetViewModelTests.swift in Sources */,
 				B7995D5782455576DF93B0F3 /* PowerStateManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

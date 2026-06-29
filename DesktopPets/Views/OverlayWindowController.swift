@@ -40,7 +40,7 @@ class OverlayWindowManager {
                 dismissAction()
             })
             
-            let wrappedView = AnyView(petView.modelContext(modelContext))
+            let wrappedView = petView.modelContext(modelContext)
             
             window.contentView = NSHostingView(rootView: wrappedView)
             windowPresenter(window)
