@@ -37,6 +37,13 @@ struct DesktopPetsApp: App {
             let minutes = Int(viewModel.idleManager.timeRemaining) / 60
             let seconds = Int(viewModel.idleManager.timeRemaining) % 60
             Text("🐾 \(String(format: "%02d:%02d", minutes, seconds))")
+                .onChange(of: viewModel.idleManager.shouldShowOverlay) { _, show in
+                    if show {
+                        OverlayWindowManager.shared.showOverlay(modelContext: sharedModelContainer.mainContext) {
+                            viewModel.idleManager.dismissOverlay()
+                        }
+                    }
+                }
         }
     }
 }

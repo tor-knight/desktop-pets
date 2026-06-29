@@ -30,12 +30,5 @@ struct ContentView: View {
         .onAppear {
             viewModel.onAppear()
         }
-        .onChange(of: viewModel.idleManager.shouldShowOverlay) { _, show in
-            if show {
-                OverlayWindowManager.shared.showOverlay(modelContext: modelContext) {
-                    viewModel.idleManager.dismissOverlay()
-                }
-            }
-        }
     }
 }
