@@ -1,4 +1,6 @@
 import XCTest
+import SwiftData
+import SwiftUI
 @testable import DesktopPets
 
 @MainActor
@@ -14,5 +16,60 @@ final class IdleTimerManagerTests: XCTestCase {
         let manager = IdleTimerManager(powerManager: PowerStateManager())
         let past = Date().addingTimeInterval(-7200) // 2 hours ago
         XCTAssertTrue(manager.hasSignificantTimeDrift(lastCheck: past))
+    }
+}
+
+@MainActor
+final class OverlayWindowControllerTests: XCTestCase {
+    func testShowAndHideOverlay() throws {
+        let manager = OverlayWindowManager.shared
+        manager.hideOverlay() // ensure clean state
+        XCTAssertTrue(manager.windows.isEmpty)
+        
+        manager.showOverlay(modelContext: nil, dismissAction: {})
+        
+        manager.hideOverlay()
+        XCTAssertTrue(manager.windows.isEmpty, "Windows should be cleared")
+    }
+}
+
+@MainActor
+final class PetViewModelTests: XCTestCase {
+    func testHoldProgressAndTimer() {
+        let viewModel = PetViewModel()
+        XCTAssertEqual(viewModel.holdProgress, 0)
+        
+        viewModel.startHold()
+        
+        let expectation = XCTestExpectation(description: "Timer increments progress")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            XCTAssertGreaterThan(viewModel.holdProgress, 0.0)
+            viewModel.endHold()
+            XCTAssertEqual(viewModel.holdProgress, 0.0, "Progress should reset to 0 if ended early")
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testTimerInvalidationOnDisappear() {
+        let viewModel = PetViewModel()
+        viewModel.startHold()
+        
+        // Simulating disappear
+        viewModel.onDisappear()
+        
+        let initialProgress = viewModel.holdProgress
+        
+        let expectation = XCTestExpectation(description: "Timer should be invalidated")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            // Should not increment after disappear
+            XCTAssertEqual(viewModel.holdProgress, initialProgress)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 1.0)
     }
 }

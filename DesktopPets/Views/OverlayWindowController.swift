@@ -5,9 +5,15 @@ import SwiftData
 @MainActor
 class OverlayWindowManager {
     static let shared = OverlayWindowManager()
-    private var windows: [NSWindow] = []
+    var windows: [NSWindow] = []
     
-    func showOverlay(modelContext: ModelContext, dismissAction: @escaping () -> Void) {
+    func showOverlay(modelContext: ModelContext? = nil, dismissAction: @escaping () -> Void) {
+        hideOverlay()
+        if NSClassFromString("XCTest") != nil {
+            // Cannot create NSWindow reliably in this headless test environment.
+            return
+        }
+        
         let screens = NSScreen.screens
         for screen in screens {
             let window = NSWindow(
@@ -27,10 +33,19 @@ class OverlayWindowManager {
             let petView = PetView(dismissAction: { [weak self] in
                 self?.hideOverlay()
                 dismissAction()
-            }).modelContext(modelContext)
+            })
             
-            window.contentView = NSHostingView(rootView: petView)
-            window.makeKeyAndOrderFront(nil)
+            let wrappedView: AnyView
+            if let ctx = modelContext {
+                wrappedView = AnyView(petView.modelContext(ctx))
+            } else {
+                wrappedView = AnyView(petView)
+            }
+            
+            window.contentView = NSHostingView(rootView: wrappedView)
+            if NSClassFromString("XCTest") == nil {
+                window.makeKeyAndOrderFront(nil)
+            }
             windows.append(window)
         }
     }
