@@ -23,10 +23,13 @@ final class IdleTimerManagerTests: XCTestCase {
 final class OverlayWindowControllerTests: XCTestCase {
     func testShowAndHideOverlay() throws {
         let manager = OverlayWindowManager.shared
+        manager.windowFactory = { _ in nil } // Do not create windows in headless environment
+        manager.windowPresenter = { _ in } // Do not show window in headless environment
         manager.hideOverlay() // ensure clean state
         XCTAssertTrue(manager.windows.isEmpty)
         
-        manager.showOverlay(modelContext: nil, dismissAction: {})
+        let container = try ModelContainer(for: HealthBehavior.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
+        manager.showOverlay(modelContext: container.mainContext, dismissAction: {})
         
         manager.hideOverlay()
         XCTAssertTrue(manager.windows.isEmpty, "Windows should be cleared")

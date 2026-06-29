@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0120F1ED432D15BF65DE287C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462C0AAE96CE438194B50EB /* ContentView.swift */; };
-		53C9D97CB7BB75AF3BFAFEDB /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823CADB81EF004738043CE49 /* PetView.swift */; };
+		289FFB0AA818E8F4435E0A29 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E169B495337E60818BD7A93B /* PetView.swift */; };
+		52F61CA264531F68BEF87D40 /* OverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85201AD7BD532EF9BC9488 /* OverlayWindowController.swift */; };
 		5D7F803BC486C142AC7E105C /* DesktopPetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */; };
 		850214D91E71AC9407D69618 /* IdleTimerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CCCFCF1FE4B22F50E8DC1 /* IdleTimerManagerTests.swift */; };
 		A77B08F7ECB0A19ACBF1243B /* IdleTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740229C922CE68868980925C /* IdleTimerManager.swift */; };
 		B7995D5782455576DF93B0F3 /* PowerStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */; };
 		C236DA8F80E7567D702C91B9 /* HealthBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA653A0B13BE72AECCA4DC3E /* HealthBehavior.swift */; };
+		DC2645B47C4F836093A68400 /* PetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0510F75828F613FDC81CFF /* PetViewModel.swift */; };
 		E656BD8B14E7DD6B237BEC18 /* PowerStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780E7C12940A43CE312D2426 /* PowerStateManager.swift */; };
-		F68AC79869D783B0F2996603 /* OverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029F06C85DC47C65E859653 /* OverlayWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,16 +32,17 @@
 /* Begin PBXFileReference section */
 		04D1CF378FEB8E4F561304EF /* DesktopPetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopPetsApp.swift; sourceTree = "<group>"; };
 		171CCCFCF1FE4B22F50E8DC1 /* IdleTimerManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerManagerTests.swift; sourceTree = "<group>"; };
+		1F85201AD7BD532EF9BC9488 /* OverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
 		3A4F34EC32373F8B07A4DF50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		740229C922CE68868980925C /* IdleTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerManager.swift; sourceTree = "<group>"; };
 		780E7C12940A43CE312D2426 /* PowerStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStateManager.swift; sourceTree = "<group>"; };
 		791298F332FF71A429EB3B11 /* PowerStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStateManagerTests.swift; sourceTree = "<group>"; };
-		823CADB81EF004738043CE49 /* PetView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
+		9B0510F75828F613FDC81CFF /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
 		B462C0AAE96CE438194B50EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopPets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesktopPetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB45444E871A74779F2F06FD /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
-		F029F06C85DC47C65E859653 /* OverlayWindowController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
+		E169B495337E60818BD7A93B /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
 		FA653A0B13BE72AECCA4DC3E /* HealthBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,14 @@
 				D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2C1433D9A83836CB1F2A98E6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9B0510F75828F613FDC81CFF /* PetViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		2D6E2358486B7EBA880CEFFE = {
@@ -97,6 +107,7 @@
 				3A4F34EC32373F8B07A4DF50 /* Info.plist */,
 				2F5245FFF96AE6E37516C092 /* Managers */,
 				1CD53C85D2B40225F455536E /* Models */,
+				2C1433D9A83836CB1F2A98E6 /* ViewModels */,
 				C68A370104197C9126226E9C /* Views */,
 			);
 			path = DesktopPets;
@@ -106,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				B462C0AAE96CE438194B50EB /* ContentView.swift */,
-				F029F06C85DC47C65E859653 /* OverlayWindowController.swift */,
-				823CADB81EF004738043CE49 /* PetView.swift */,
+				1F85201AD7BD532EF9BC9488 /* OverlayWindowController.swift */,
+				E169B495337E60818BD7A93B /* PetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +138,8 @@
 				D7D66469C7CBEE7C376AACF6 /* PBXTargetDependency */,
 			);
 			name = DesktopPetsTests;
+			packageProductDependencies = (
+			);
 			productName = DesktopPetsTests;
 			productReference = D299C0A08FE95F7F037CC65D /* DesktopPetsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -142,6 +155,8 @@
 			dependencies = (
 			);
 			name = DesktopPets;
+			packageProductDependencies = (
+			);
 			productName = DesktopPets;
 			productReference = CC009A01400C7BCA3F4E9DFA /* DesktopPets.app */;
 			productType = "com.apple.product-type.application";
@@ -195,9 +210,10 @@
 				5D7F803BC486C142AC7E105C /* DesktopPetsApp.swift in Sources */,
 				C236DA8F80E7567D702C91B9 /* HealthBehavior.swift in Sources */,
 				A77B08F7ECB0A19ACBF1243B /* IdleTimerManager.swift in Sources */,
+				52F61CA264531F68BEF87D40 /* OverlayWindowController.swift in Sources */,
+				289FFB0AA818E8F4435E0A29 /* PetView.swift in Sources */,
+				DC2645B47C4F836093A68400 /* PetViewModel.swift in Sources */,
 				E656BD8B14E7DD6B237BEC18 /* PowerStateManager.swift in Sources */,
-				F68AC79869D783B0F2996603 /* OverlayWindowController.swift in Sources */,
-				53C9D97CB7BB75AF3BFAFEDB /* PetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
