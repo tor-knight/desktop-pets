@@ -8,8 +8,9 @@ final class IdleTimerManager {
     var isUsingAbsoluteTimer: Bool = false
     var mockPermission: Bool?
     private var powerManager: PowerStateManager
-    private var timer: Timer?
-    private var globalMonitor: Any?
+    nonisolated(unsafe) private var timer: Timer?
+    nonisolated(unsafe) private var globalMonitor: Any?
+    nonisolated(unsafe) private var localMonitor: Any?
     private var lastActivity: Date = Date()
     private let idleThreshold: TimeInterval = 45 * 60 // 45 minutes
     
@@ -23,6 +24,7 @@ final class IdleTimerManager {
     }
     
     func startMonitoring() {
+        timer?.invalidate()
         if hasAccessibilityPermission {
             setupGlobalMonitor()
             isUsingAbsoluteTimer = false
@@ -33,8 +35,15 @@ final class IdleTimerManager {
     }
     
     private func setupGlobalMonitor() {
+        if let monitor = globalMonitor { NSEvent.removeMonitor(monitor) }
+        if let monitor = localMonitor { NSEvent.removeMonitor(monitor) }
+        
         globalMonitor = NSEvent.addGlobalMonitorForEvents(matching: .any) { [weak self] _ in
             self?.resetIdle()
+        }
+        localMonitor = NSEvent.addLocalMonitorForEvents(matching: .any) { [weak self] event in
+            self?.resetIdle()
+            return event
         }
         timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
             self?.checkIdleState()
@@ -80,5 +89,28 @@ final class IdleTimerManager {
         shouldShowOverlay = false
         resetIdle()
         startMonitoring()
+    }
+    
+    func stopMonitoring() {
+        timer?.invalidate()
+        timer = nil
+        if let monitor = globalMonitor {
+            NSEvent.removeMonitor(monitor)
+            globalMonitor = nil
+        }
+        if let monitor = localMonitor {
+            NSEvent.removeMonitor(monitor)
+            localMonitor = nil
+        }
+    }
+    
+    deinit {
+        let currentTimer = timer
+        let currentGlobal = globalMonitor
+        let currentLocal = localMonitor
+        
+        currentTimer?.invalidate()
+        if let g = currentGlobal { NSEvent.removeMonitor(g) }
+        if let l = currentLocal { NSEvent.removeMonitor(l) }
     }
 }
