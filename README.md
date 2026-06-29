@@ -50,3 +50,12 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project Des
 4. 双击打开刚刚重新编译的 `build/DesktopPets.app`。
 5. 顺着系统弹窗再次进入辅助功能，打开新出现的 `DesktopPets` 开关。
 6. 点击一下 DesktopPets 的应用窗口使其成为前台，界面瞬间就会变为绿色的 `✅ Permissions granted`。
+
+## 📦 更新日志 (Changelog)
+
+**v1.1 (最新版)**
+- **修复底层闪退问题：** 彻底修复了在长按 5 秒退出全屏蒙层时，因 macOS 窗口底层生命周期与手势冲突导致的偶发闪退 (Crash) 问题。
+- **重置逻辑完善：** 修复了退出蒙层后倒计时未能正确重置，导致蒙层立刻重新弹出的逻辑问题。现在退出蒙层后，倒计时会满血恢复为 `45:00`。
+- **专属应用图标：** 增加了定制的极简线条风宠物（小猫）App Icon。
+- **主动触发测试：** 界面新增 `Test Overlay` 测试按钮，方便你随时查看全屏蒙层动画效果。
+- **顶栏原生显示：** 优化了系统菜单栏的渲染逻辑，倒计时时钟现在会百分百稳固地显示在 🐾 图标旁。
