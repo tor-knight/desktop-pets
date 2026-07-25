@@ -59,9 +59,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG_NAME="v1.0.0"
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            TAG_NAME="${github.ref#refs/tags/}"
+          TAG_NAME="${GITHUB_REF_NAME}"
+          if [[ "${GITHUB_REF}" != refs/tags/* ]]; then
+            TAG_NAME="v1.0.0"
           fi
 
           gh release create "$TAG_NAME" DesktopPets-macOS.zip \
