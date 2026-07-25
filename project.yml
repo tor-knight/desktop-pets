@@ -1,6 +1,7 @@
 name: DesktopPets
 options:
   bundleIdPrefix: com.example
+  objectVersion: 56
 targets:
   DesktopPets:
     type: application
