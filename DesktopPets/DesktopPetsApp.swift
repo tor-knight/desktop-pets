@@ -5,7 +5,7 @@ import SwiftData
 @MainActor
 struct DesktopPetsApp: App {
     @State private var viewModel = ContentViewModel()
-    
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([HealthBehavior.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
@@ -21,12 +21,22 @@ struct DesktopPetsApp: App {
             ContentView(viewModel: viewModel)
         }
         .modelContainer(sharedModelContainer)
-        
+
         MenuBarExtra {
+            Button("Reset Timer") {
+                viewModel.resetTimer()
+            }
             Button("Settings") {
                 NSApp.activate(ignoringOtherApps: true)
+                var foundWindow = false
                 for window in NSApplication.shared.windows {
-                    window.makeKeyAndOrderFront(nil)
+                    if window.canBecomeMain {
+                        window.makeKeyAndOrderFront(nil)
+                        foundWindow = true
+                    }
+                }
+                if !foundWindow {
+                    viewModel.openSettings()
                 }
             }
             Divider()
@@ -34,8 +44,8 @@ struct DesktopPetsApp: App {
                 NSApplication.shared.terminate(nil)
             }
         } label: {
-            let minutes = Int(viewModel.idleManager.timeRemaining) / 60
-            let seconds = Int(viewModel.idleManager.timeRemaining) % 60
+            let minutes = max(0, Int(viewModel.idleManager.timeRemaining)) / 60
+            let seconds = max(0, Int(viewModel.idleManager.timeRemaining)) % 60
             Text("🐾 \(String(format: "%02d:%02d", minutes, seconds))")
                 .onChange(of: viewModel.idleManager.shouldShowOverlay) { _, show in
                     if show {
