@@ -66,5 +66,5 @@ jobs:
 
           gh release create "$TAG_NAME" DesktopPets-macOS.zip \
             --title "Desktop Pets $TAG_NAME" \
-            --notes "Release artifact generated automatically by GitHub Actions CI workflow." \
-            --clobber || true
+            --notes "Release artifact generated automatically by GitHub Actions CI workflow." || \
+          gh release upload "$TAG_NAME" DesktopPets-macOS.zip --clobber
